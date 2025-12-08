@@ -1,6 +1,7 @@
 # Short Responses
 
 For this short response assignment, aim to write a response with the following qualities (your instructor will give you feedback on these areas):
+
 - [] Addresses all parts of the prompt
 - [] Accurately uses relevant technical terminology
 - [] Is free of grammar and spelling mistakes (double check with grammarly!)
@@ -16,25 +17,26 @@ Using the code block below, explain what it means for a function call to be an "
 ```js
 const double = (num) => {
   return num * 2;
-}
+};
 
 const result = double(5);
 ```
 
 In your response, make sure to cover the following details:
+
 1. Explain what an "expression" is.
 2. Explain how it is determined what value a function call will resolve/evaluate to.
 3. Explain why function calls sometimes resolve/evaluate to `undefined`.
 
 ### Response 1
 
-Your response...
+According to MDN, an expression is any valid piece code that produces a value. When calling on a function the value that is evaluated, is determined through its parameters and the code that resides inside the function in order to give an evaluated output. Functions calls can sometimes evaluate to `undefined` due to the function not being declared(not existing) or because the function does not return anything.
 
 ---
 
 ## Prompt 2
 
-Analyze the following code. Then, fill in the template below with the callstack and the values of all variables at the moment when the `getFirstLetter()` function has just been called *for the first time* but has NOT yet returned.
+Analyze the following code. Then, fill in the template below with the callstack and the values of all variables at the moment when the `getFirstLetter()` function has just been called _for the first time_ but has NOT yet returned.
 
 ```js
 const buildProfile = (firstName, lastName, age) => {
@@ -42,23 +44,23 @@ const buildProfile = (firstName, lastName, age) => {
   const initials = extractInitials(firstName, lastName);
   const bio = `${fullName} (${initials}) - Age: ${age}`;
   return bio;
-}
+};
 
 const createFullName = (first, last) => {
   const fullName = first + " " + last;
   return fullName;
-}
+};
 
 const extractInitials = (first, last) => {
   const firstInitial = getFirstLetter(first); // <--- we're in this function call
   const lastInitial = getFirstLetter(last);
   return firstInitial + lastInitial;
-}
+};
 
 const getFirstLetter = (name) => {
   // ***draw the callstack at this moment before the return***
   return name[0].toUpperCase();
-}
+};
 
 const userProfile = buildProfile("reuben", "ogbonna", 24);
 console.log(userProfile); // reuben ogbonna (RO) - Age: 24
@@ -125,7 +127,7 @@ let count = 0;
 
 const incrementA = () => {
   count = count + 1;
-}
+};
 
 incrementA();
 console.log(count);
@@ -139,7 +141,7 @@ let count = 0;
 const incrementB = () => {
   let count = 0;
   count = count + 1;
-}
+};
 
 incrementB();
 console.log(count);
@@ -147,7 +149,11 @@ console.log(count);
 
 ### Response 3
 
-Your response...
+Although both codes have similar codes, the output for example A compared to example B is different.
+
+Example A would return you with the applied value of the `count` variable, since we see the initial value of `count` being set to 0 and then having 1 added to the variable, we can assume that example A will produce the output of "1" because the `incrementA()`.
+
+Example B would return . The reason why example B would return this is because
 
 ---
 
