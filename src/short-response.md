@@ -30,7 +30,7 @@ In your response, make sure to cover the following details:
 
 ### Response 1
 
-According to MDN, an expression is any valid piece code that produces a value. When calling on a function the value that is evaluated, is determined through its parameters and the code that resides inside the function in order to give an evaluated output. Functions calls can sometimes evaluate to `undefined` due to the function not being declared(not existing) or because the function does not return anything.
+According to MDN, an expression is any unit of code that evaluates to a value. A function call will evaluate to whatever is put after the keyword `return` within the function, this is determined on the inputs or the if the condition inside the function. The functions calls sometimes resolve to `undefined` if there is no `return` keyword, if there is a `return` keyword but nothing after it, or when the value being returned is `undefined` an example can be a variable that was declared but was never assigned.
 
 ---
 
@@ -78,40 +78,41 @@ console.log(userProfile); // reuben ogbonna (RO) - Age: 24
 ```
 Callstack: (recent calls at the top)
 ---------------------------
-[           ]
-[           ]
-[           ]
-[           ]
-
+[ getFirstLetter("reuben") ]
+[ extractInitials("reuben", "ogbonna") ]
+[ buildProfile("reuben", "ogbonna", 24) ]
+[ Global ]
 
 Variables by Scope:
 ---------------------------
 Global Scope:
-- buildProfile = ?
-- createFullName = ?
-- extractInitials = ?
-- getFirstLetter = ?
-- userProfile = ?
+- buildProfile = function
+- createFullName = function
+- extractInitials = function
+- getFirstLetter = function
+- userProfile = waiting
 
 buildProfile() scope:
-- firstName = ?
-- lastName = ?
-- age = ?
-- fullName = ?
-- initials = ?
-- bio = ?
+- firstName = "reuben"
+- lastName = "ogbonna"
+- age = 24
+- fullName = "reuben ogbonna"
+- initials = waiting
+- bio = undefined
 
 createFullName() scope:
-- (list any parameters/variables)
+- first = "reuben"
+- last = "ogbonna"
+- fullName = "reuben ogbonna"
 
 extractInitials() scope:
-- first = ?
-- last = ?
-- firstInitial = ?
-- lastInitial = ?
+- first = "reuben"
+- last = "ogbonna"
+- firstInitial = waiting
+- lastInitial = undefined
 
 getFirstLetter() scope:
-- name = ?
+- name = "reuben"
 ```
 
 ---
@@ -149,11 +150,9 @@ console.log(count);
 
 ### Response 3
 
-Although both codes have similar codes, the output for example A compared to example B is different.
+Example A would return you with the applied value of the `count` variable, since we see the initial value of `count` being set to 0 and then having 1 added to the variable, we can assume that example A will produce the output of "1" because the `incrementA()`function is called before we actually console log the count variable.
 
-Example A would return you with the applied value of the `count` variable, since we see the initial value of `count` being set to 0 and then having 1 added to the variable, we can assume that example A will produce the output of "1" because the `incrementA()`.
-
-Example B would return . The reason why example B would return this is because
+Example B prints `0`. The reason is because 2 declarations are happening within this code one in the global scope, and one inside the function body of `incrementB()`. Since there is a `count` variable being declared inside the function, and its being updated Javascript is gonna update the `count` variable that is being declared within the function. When the `console.log` calls on `count` both take place in the global scope so if the intentions were to get the value of updated `count` within the function then we aren't going to get that, were going to receive the value of the `count` variable that was declared in the global scope, which the value never changed from 0.
 
 ---
 
@@ -189,9 +188,9 @@ Label the basic array methods below with a 1-sentence description of what they d
 
 ### Response 5
 
-- `push(value)` - ???
-- `pop()` - ???
-- `shift()` - ???
-- `unshift(value)` - ???
-- `splice(index, deleteCount)` - ???
-- `slice(start, end)` - ???
+- `push(value)` - `(mutating)` this method mutates an array by allowing the user to insert/add a value into the end of an array.
+- `pop()` - `(mutating)` this method mutates the array by removing the last element of an array and returns that element.
+- `shift()` - `(mutating)` this method mutates the array as it removes the first element of an array and returns that element.
+- `unshift(value)` - `(mutating)` this array method mutates the array by adding/inserting a value to the beginning of an array and then returns the new length.
+- `splice(index, deleteCount)` - `(mutating)` `splice()` removes or replaces elements at a specified index and returns that removed element.
+- `slice(start, end)` - `(non-mutating)` `slice()` returns a new array that's a copy of the original array starting from the set start to end indexes without ever modifying the original.

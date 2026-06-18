@@ -1,5 +1,10 @@
 const maskEmail = (email) => {
-    return
+    const trimmedMail = email.trim()
+    const username = trimmedMail.split('@')[0]
 
+    if (username.length <= 2) {
+        return trimmedMail
+    }
+
+    return `${trimmedMail[0]}***@${trimmedMail.split('@').pop()}`
 }
-console.log(maskEmail('swsa@gmail.com'))
